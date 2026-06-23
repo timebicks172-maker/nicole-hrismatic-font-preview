@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<style>
+/* Bricolage Grotesque — Variable z opsz (optical size) + wght + wdth */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #080b13; color: #fff; padding: 48px 36px; max-width: 960px; margin: 0 auto; }
+
+.hero { margin-bottom: 56px; }
+.hero-tag { font-family: 'JetBrains Mono',monospace; font-size: 10px; color: #42c9fc; letter-spacing: 3px; margin-bottom: 16px; }
+.hero-title { 
+  font-family: 'Bricolage Grotesque',sans-serif; 
+  font-size: 60px; 
+  font-weight: 700; 
+  font-variation-settings: 'opsz' 72;
+  line-height: 1.05; 
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+.hero-title em { 
+  font-variation-settings: 'opsz' 72, 'wght' 800; 
+  font-style: normal; 
+  color: #42c9fc; 
+}
+.hero-sub {
+  font-family: 'Bricolage Grotesque',sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  font-variation-settings: 'opsz' 16;
+  color: #90a1b9;
+  line-height: 1.5;
+  max-width: 540px;
+}
+.hero-stats { display: flex; gap: 36px; margin-top: 28px; }
+.hero-stat-num { font-family: 'JetBrains Mono',monospace; font-size: 34px; font-weight: 700; color: #42c9fc; }
+.hero-stat-label { 
+  font-family: 'Bricolage Grotesque',sans-serif; 
+  font-size: 13px; 
+  color: #90a1b9; 
+  margin-top: 2px; 
+  font-variation-settings: 'opsz' 12;
+}
+
+.section-head { 
+  font-family: 'JetBrains Mono',monospace; 
+  font-size: 10px; color: #475569; 
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
+  margin: 48px 0 16px; 
+}
+
+/* REELS */
+.reels { display: flex; gap: 20px; flex-wrap: wrap; }
+.reel { 
+  width: 270px; height: 480px; 
+  background: linear-gradient(180deg, #0f1629 0%, #1a2540 50%, #272f43 100%); 
+  border-radius: 14px; overflow: hidden; border: 1px solid #374151; 
+}
+.reel-inner { padding: 24px 18px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.reel-tag { font-family: 'JetBrains Mono',monospace; font-size: 8px; color: #6366f1; letter-spacing: 2px; margin-bottom: 14px; }
+.reel-quote { 
+  font-family: 'Bricolage Grotesque',sans-serif; 
+  font-size: 22px; font-weight: 600; 
+  font-variation-settings: 'opsz' 36;
+  line-height: 1.2; 
+}
+.reel-quote b { font-weight: 800; font-variation-settings: 'opsz' 36, 'wght' 800; }
+.reel-body { 
+  font-family: 'Bricolage Grotesque',sans-serif; 
+  font-size: 12px; font-weight: 400; 
+  font-variation-settings: 'opsz' 12;
+  color: #90a1b9; line-height: 1.5; 
+}
+.reel-author { 
+  font-family: 'Bricolage Grotesque',sans-serif; 
+  font-size: 14px; font-weight: 600; 
+  font-variation-settings: 'opsz' 16;
+  margin-top: 8px; 
+}
+.reel-role { 
+  font-family: 'Bricolage Grotesque',sans-serif; 
+  font-size: 10px; font-weight: 300; 
+  font-variation-settings: 'opsz' 12;
+  color: #475569; 
+}
+.reel-stat { display: flex; align-items: baseline; gap: 8px; margin-top: 8px; }
+.reel-stat-num { font-family: 'JetBrains Mono',monospace; font-size: 28px; font-weight: 700; color: #42c9fc; }
+.reel-stat-label { font-family: 'Bricolage Grotesque',sans-serif; font-size: 10px; color: #90a1b9; }
+
+/* Body text */
+.body-example { background: #111827; border-radius: 12px; padding: 28px; border: 1px solid #272f43; max-width: 640px; }
+.body-title { 
+  font-family: 'Bricolage Grotesque',sans-serif; 
+  font-size: 26px; font-weight: 600; 
+  font-variation-settings: 'opsz' 32;
+  margin-bottom: 12px; 
+}
+.body-text { 
+  font-family: 'Bricolage Grotesque',sans-serif; 
+  font-size: 15px; font-weight: 400; 
+  font-variation-settings: 'opsz' 14;
+  line-height: 1.6; color: #e3f3fe; 
+}
+.body-text b { font-weight: 700; }
+.body-text em { 
+  font-variation-settings: 'opsz' 14, 'wght' 600; 
+  font-style: normal; color: #42c9fc; 
+}
+
+/* COMPARISON */
+.compare { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.compare-panel { background: #111827; border-radius: 10px; padding: 18px; border: 1px solid #272f43; }
+.compare-panel.win { border-color: #42c9fc; }
+.compare-panel h3 { font-family: 'JetBrains Mono',monospace; font-size: 9px; color: #475569; letter-spacing: 1px; margin-bottom: 10px; }
+.compare-panel.win h3 { color: #42c9fc; }
+.compare-title { font-size: 20px; line-height: 1.2; margin-bottom: 6px; }
+.compare-caption { font-size: 12px; line-height: 1.5; color: #90a1b9; }
+.compare-metric { font-size: 22px; font-weight: 700; color: #42c9fc; margin-top: 8px; }
+
+hr { border: none; border-top: 1px solid #272f43; margin: 20px 0; }
+
+.note { 
+  font-family: 'Bricolage Grotesque',sans-serif; 
+  font-size: 13px; font-weight: 300; 
+  font-variation-settings: 'opsz' 14;
+  color: #475569; 
+}
+.note b { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Bricolage Grotesque · Variable · 1 font, pełna kontrola</div>
+  <div class="hero-title"><em>HR</em>, który mówi<br>językiem biznesu</div>
+  <div class="hero-sub">Charyzmatycznie przekładam HR na język liczb. Dostarczam mierzalne rezultaty i realnie wpływam na sukces organizacji.</div>
+  <div class="hero-stats">
+    <div><div class="hero-stat-num">37 600+</div><div class="hero-stat-label">LinkedIn</div></div>
+    <div><div class="hero-stat-num">1.4M</div><div class="hero-stat-label">zasięg/rok</div></div>
+    <div><div class="hero-stat-num">26+</div><div class="hero-stat-label">marek</div></div>
+  </div>
+</div>
+
+<!-- REELS -->
+<h2 class="section-head">Reel mockupy · 1080×1920</h2>
+<div class="reels">
+  <div class="reel">
+    <div class="reel-inner">
+      <div>
+        <div class="reel-tag">HR BEZ TABU</div>
+        <div class="reel-quote">„HR nie jest <b>konfesjonałem</b>.”</div>
+      </div>
+      <div>
+        <div class="reel-body">Jest <b>partnerem biznesu</b>, który pomaga organizacji rosnąć poprzez ludzi. Mówię głośno to, o czym HR milczy.</div>
+        <div class="reel-author">Nicole Tomanek</div>
+        <div class="reel-role">HRismatic · Autorka „HR bez TABU”</div>
+        <div class="reel-stat">
+          <span class="reel-stat-num">37k+</span>
+          <span class="reel-stat-label">LinkedIn</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reel">
+    <div class="reel-inner">
+      <div>
+        <div class="reel-tag">CASE STUDY</div>
+        <div class="reel-quote">„Chcę budować <b>markę</b>, ale nie pajaca.”</div>
+      </div>
+      <div>
+        <div class="reel-body">Słyszę to <b>na każdym kroku</b> od klientów, którzy chcą autentyczności i profesjonalizmu.</div>
+        <div class="reel-author">Nicole Tomanek</div>
+        <div class="reel-role">Wykładowczyni MBA</div>
+        <div class="reel-stat">
+          <span class="reel-stat-num">26+</span>
+          <span class="reel-stat-label">marek</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reel">
+    <div class="reel-inner">
+      <div>
+        <div class="reel-tag">STRATEGIA</div>
+        <div class="reel-quote">„Dział HR to <b>centrum zysku</b>.”</div>
+      </div>
+      <div>
+        <div class="reel-body">Transformacja HR z funkcji <b>administracyjnej</b> w strategicznego partnera biznesowego.</div>
+        <div class="reel-author">Nicole Tomanek</div>
+        <div class="reel-role">Top 8 HR Poland · Favikon</div>
+        <div class="reel-stat">
+          <span class="reel-stat-num">1.4M</span>
+          <span class="reel-stat-label">zasięg/rok</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY TEXT -->
+<h2 class="section-head">Body text · caption (14-16px) z optical sizing</h2>
+<div class="body-example">
+  <div class="body-title">Mówię głośno to, o czym HR milczy</div>
+  <div class="body-text">
+    Każdego dnia udowadniam, że <b>HR to strategiczny partner biznesu</b>, nie tylko dział operacyjny. <em>Łączę solidność akademicką z rzeczywistym wpływem.</em> Specjalizuję się w rekrutacji opartej na dowodach, budowaniu kultury organizacyjnej i transformacji HR w centrum zysku.
+  </div>
+</div>
+
+<!-- COMPARISON -->
+<h2 class="section-head">v5 (Newsreader+Roboto) vs v6 (Bricolage Grotesque solo)</h2>
+<div class="compare">
+  <div class="compare-panel">
+    <h3>v5: 2 fonty</h3>
+    <div class="compare-title" style="font-family:'Newsreader',serif;font-weight:600;font-style:italic;">HR nie jest konfesjonałem</div>
+    <div class="compare-caption" style="font-family:'Roboto',sans-serif;">HR to strategiczny partner biznesu. Mówię głośno to, o czym HR milczy — o błędach i mitach.</div>
+    <div class="compare-metric" style="font-family:'JetBrains Mono',monospace;">37 600+</div>
+  </div>
+  <div class="compare-panel win">
+    <h3>v6: 1 font Variable</h3>
+    <div class="compare-title" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-variation-settings:'opsz' 32;">HR nie jest konfesjonałem</div>
+    <div class="compare-caption" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:400;font-variation-settings:'opsz' 14;">HR to strategiczny partner biznesu. Mówię głośno to, o czym HR milczy — o błędach i mitach.</div>
+    <div class="compare-metric" style="font-family:'JetBrains Mono',monospace;">37 600+</div>
+  </div>
+  <div class="compare-panel">
+    <h3>v6: Tylko metryki</h3>
+    <div class="compare-title" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-variation-settings:'opsz' 32;">37 600+</div>
+    <div class="compare-caption" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:300;font-variation-settings:'opsz' 12;">profesjonalistów na LinkedIn</div>
+    <div class="compare-metric" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-variation-settings:'opsz' 48;">1.4M</div>
+  </div>
+</div>
+
+<hr>
+<div class="note">
+  <b>Bricolage Grotesque</b> — Variable font z osią opsz (optical size). W 60px = charakter, ink traps, vintage pazur. W 14px = neutralny, czytelny grotesk. <b>Jeden font, pełna kontrola.</b> + JetBrains Mono do metryk. Google Fonts, polskie znaki ✅.
+</div>
+
+</body>
+</html>
